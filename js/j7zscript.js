@@ -7,11 +7,11 @@ const textAnimations = {
 	logoAnimation: (el) => {
 		const split = SplitText.create(el, {
 			type: "chars",
-			smartWrap: true,
+			smartWrap: true, 
 			mask: "chars"
 		});
 
-		split.chars.forEach((charEl) => {
+		split.chars.forEach((charEl) => { 
 			const text = charEl.innerText;
 			charEl.innerHTML = "";
 			const ogDiv = document.createElement("div");
@@ -87,17 +87,17 @@ function animateText(el) {
 	});
 }
 
-function preloaderAnimation() {
-	let tl = gsap.timeline();
+function preloaderAnimation() {  
+	let tl = gsap.timeline(); 
 	tl
 		.call(animateText, [".logo-text"])
 		.to(".preloader-bg", {
 			scaleX: 1,
 			ease: "stutterEase",
 			duration: 2.8
-		})
-		.to(".preloader-mask", {
-			scale: 4,
+		}) 
+		.to(".preloader-mask", { 
+			scale: 8,
 			duration: 0.9,
 			ease: "expoScale(0.5,7,power1.in)"
 		})
@@ -173,12 +173,7 @@ function heroAnimation() {
 	return tl;
 }
 
-window.addEventListener("load", () => {
-	const introTimeline = gsap.timeline();
-	const preloaderTl = preloaderAnimation();
-	const heroTl = heroAnimation();
-	introTimeline.add(preloaderTl).add(heroTl, "-=2.4");
-});
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
