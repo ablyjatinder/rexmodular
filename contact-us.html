@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>RexModular</title>
-        <!-- FAVicon -->
-        <link rel="icon" type="image/png" href="images/favicon/favicon.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
-        <link rel="shortcut icon" href="images/favicon/favicon.ico" />
+    <!-- FAVicon -->
+    <link rel="icon" type="image/png" href="images/favicon/favicon.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,27 +18,27 @@
     <link rel="stylesheet" href="css/main-ltr.css" />
 </head>
 
-    <body class="">
-        <div class="app">
-            <header class="header" id="header">
-                <div class="container">
-                    <div class="header-inner">
-                        <div class="logo" data-fade-in="down">
-                            <a href="index.html"> <img src="images/logos/logo-colored.svg" alt=""></a>
-                        </div>
-                        <button class="menu-button" type="button" data-fade-in="down" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                            <span class="button-icon">
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                    height="24" fill="currentColor">
-                                    <path fill="none" d="M0 0h24v24H0z"></path>
-                                    <path d="M3 4H21V6H3V4ZM3 11H15V13H3V11ZM3 18H21V20H3V18Z"></path>
-                                </svg>
-                            </span> <span class="button-txt">Menu</span> </button>
+<body class="">
+    <div class="app">
+        <header class="header" id="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo" data-fade-in="down">
+                        <a href="index.html"> <img src="images/logos/logo-colored.svg" alt=""></a>
                     </div>
+                    <button class="menu-button" type="button" data-fade-in="down" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        <span class="button-icon">
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                height="24" fill="currentColor">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path d="M3 4H21V6H3V4ZM3 11H15V13H3V11ZM3 18H21V20H3V18Z"></path>
+                            </svg>
+                        </span> <span class="button-txt">Menu</span> </button>
                 </div>
-            </header>
-            <!-- <div class="preloader-progress-bar">
+            </div>
+        </header>
+        <!-- <div class="preloader-progress-bar">
                 <div class="preloader-bg"></div>
                 <div class="preloader-logo">
                     <p class="logo-text" data-text-anim="logoAnimation">RexModular</p>
@@ -68,12 +68,12 @@
                     </div>
                 </div>
                 <div class="section-intru-img">
-                        <div class="reveal">
-                            <div class="image-wrap"> <img src="images/contact-us.webp" alt=""></div>
-                        </div>
-
-
+                    <div class="reveal">
+                        <div class="image-wrap"> <img src="images/contact-us.webp" alt=""></div>
                     </div>
+
+
+                </div>
             </section>
             <section class="section bg-light-blue">
                 <div class="container">
@@ -121,25 +121,24 @@
                                         class="btn btn-brand btn-submit">Submit</button>
                                 </div>
                             </form>
-                            <div class="success d-none" id="successJS"> </div>
 
-                                <div class="thanks-msg" style="display: none;">
-                                    <div class="thanks-msg-img"> <img src="images/thq-page.png" alt=""></div>
-                                    <h3> Thank you!</h3>
-                                    <p>Your message has been submitted successfully. We’ll get back to you shortly.</p>
-                                </div>
+                            <div class="thanks-msg d-none" id="successJS">
+                                <div class="thanks-msg-img"> <img src="images/thq-page.png" alt=""></div>
+                                <h3> Thank you!</h3>
+                                <p>Your message has been submitted successfully. We’ll get back to you shortly.</p>
                             </div>
                         </div>
                     </div>
-                </section>
-            </main>
-            <footer class="footer" id="footer" data-collection="footer">
-                <section class="footer-bottom">
-                    <div class="container">
-                        <div class="footer-bottom-inner">
-                            <div class="footer-bottom-item">
-                                <p class="address">Bellevue, WA</p>
-                            </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer" id="footer" data-collection="footer">
+            <section class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom-inner">
+                        <div class="footer-bottom-item">
+                            <p class="address">Bellevue, WA</p>
+                        </div>
 
                         <div class="footer-bottom-item">
                             <p class="copyright">© RexModular 2026. All rights reserved.</p>
@@ -197,13 +196,13 @@
     <script src='./js/bootstrap.js'></script>
     <script src="./js/zscript.js"></script> -->
     <script src="./js/min/bundle.js"></script>
-        <script>
-            window.addEventListener("load", () => {
-                const introTimeline = gsap.timeline();
-                const heroTl = heroAnimation();
-                introTimeline.add(heroTl, "-=0.1");
-            });
-        </script>
+    <script>
+        window.addEventListener("load", () => {
+            const introTimeline = gsap.timeline();
+            const heroTl = heroAnimation();
+            introTimeline.add(heroTl, "-=0.1");
+        });
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

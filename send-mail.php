@@ -1,11 +1,11 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
 header('Content-Type: application/json');
-echo json_encode(['status' => 'success']);die;
 // Get POST data safely
 $name        = trim($_POST['name'] ?? '');
 $phone       = trim($_POST['phone'] ?? '');
@@ -30,23 +30,23 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.office365.com'; // or your hosting SMTP
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'you@yourdomain.com'; // your email
-    $mail->Password   = 'your-password';      // your password / app password
+    $mail->Username   = 'Vicky@synergycd.com'; // your email
+    $mail->Password   = 'Hellomengru123';      // your password / app password
     $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
     // Sender
-    $mail->setFrom('you@yourdomain.com', 'Website Contact');
+    $mail->setFrom('Vicky@synergycd.com', 'Website Contact');
 
     // Send to YOU (admin)
-    $mail->addAddress('you@yourdomain.com');
-
+    $mail->addAddress('Vicky@synergycd.com');
+    $mail->addCC('brian@rexmodular.com');
     // Optional: Reply to user
     $mail->addReplyTo($email, $name);
 
     // Email content
     $mail->isHTML(true);
-    $mail->Subject = 'New Contact Form Submission';
+    $mail->Subject = 'New Contact Form Submission on Rexmodular.com';
 
     $mail->Body = "
         <h3>New Enquiry</h3>
@@ -58,19 +58,14 @@ try {
 
     $mail->AltBody = "Name: $name\nPhone: $phone\nEmail: $email\nMessage: $description";
 
-    $mail->send();
-
-    // ✅ Optional: Send THANK YOU email to user
-    $mail->clearAddresses();
-    $mail->addAddress($email, $name);
-
-    $mail->Subject = "Thank You for Contacting Us";
-    $mail->Body    = "Hi $name,<br><br>Thank you for reaching out. We will get back to you soon.";
-    $mail->AltBody = "Hi $name, Thank you for contacting us.";
-
-    $mail->send();
-
-    echo json_encode(['status' => 'success']);
+    if (!$mail->send()) {
+        echo json_encode([
+            'status' => 'error',
+            'msg' => $mail->ErrorInfo
+        ]);
+    } else {
+        echo json_encode(['status' => 'success']);
+    }
 
 } catch (Exception $e) {
     echo json_encode([
