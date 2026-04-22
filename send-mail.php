@@ -30,17 +30,17 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.office365.com'; // or your hosting SMTP
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'Vicky@synergycd.com'; // your email
-    $mail->Password   = 'Hellomengru123';      // your password / app password
+    $mail->Username   = 'test@mail.com'; // your email
+    $mail->Password   = 'testpassword';      // your password / app password
     $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
     // Sender
-    $mail->setFrom('Vicky@synergycd.com', 'Website Contact');
+    $mail->setFrom('test@mail.com', 'Website Contact');
 
     // Send to YOU (admin)
-    $mail->addAddress('Vicky@synergycd.com');
-    $mail->addCC('brian@rexmodular.com');
+    $mail->addAddress('test@mail.com');
+    $mail->addCC('test@mail.com');
     // Optional: Reply to user
     $mail->addReplyTo($email, $name);
 
