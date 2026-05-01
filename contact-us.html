@@ -123,6 +123,7 @@
                                         placeholder=""></textarea>
                                     <div class="error"></div>
                                 </div>
+                                <input type="hidden" name="g-recaptcha-response" id="recaptchaToken">
                                 <div class="form-group"> <button type="button"
                                         class="btn btn-brand btn-submit">Submit</button>
                                 </div>
@@ -211,6 +212,7 @@
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
 
     <script>
         $(document).ready(function () {
@@ -308,30 +310,37 @@
 
             if (!isValid) return;
 
-            $.ajax({
-                url: 'send-mail.php',
-                type: 'POST',
-                data: form.serialize(),
-                dataType: 'json',
-                beforeSend: function () {
-                    $('.btn-submit').prop('disabled', true).text('Sending...');
-                },
-                success: function (res) {
-                    if (res.status === 'success') {
-                        form.html("");
-                        $('#successJS').removeClass('d-none');
-                    } else {
-                        alert('Something went wrong');
-                    }
-                },
-                error: function () {
-                    alert('Server error');
-                },
-                complete: function () {
-                    $('.btn-submit').prop('disabled', false).text('Submit');
-                }
-            });
+            grecaptcha.ready(function () {
+                grecaptcha.execute('YOUR_SITE_KEY', { action: 'contact_form' }).then(function (token) {
 
+                    // Set token in hidden field
+                    $('#recaptchaToken').val(token);
+
+                    $.ajax({
+                        url: 'send-mail.php',
+                        type: 'POST',
+                        data: form.serialize(),
+                        dataType: 'json',
+                        beforeSend: function () {
+                            $('.btn-submit').prop('disabled', true).text('Sending...');
+                        },
+                        success: function (res) {
+                            if (res.status === 'success') {
+                                form.html("");
+                                $('#successJS').removeClass('d-none');
+                            } else {
+                                alert('Something went wrong');
+                            }
+                        },
+                        error: function () {
+                            alert('Server error');
+                        },
+                        complete: function () {
+                            $('.btn-submit').prop('disabled', false).text('Submit');
+                        }
+                    });
+                });
+            });
         });
 
 

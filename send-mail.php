@@ -23,6 +23,18 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+$secretKey = "YOUR_SECRET_KEY";
+$token = $_POST['g-recaptcha-response'];
+
+$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$token}");
+$responseData = json_decode($response);
+
+if ($responseData->success && $responseData->score < 0.5) {
+    echo json_encode(['status' => 'error', 'message' => 'reCAPTCHA failed']);
+    exit;
+}
+
+
 $mail = new PHPMailer(true);
 
 try {
@@ -66,7 +78,6 @@ try {
     } else {
         echo json_encode(['status' => 'success']);
     }
-
 } catch (Exception $e) {
     echo json_encode([
         'status' => 'error',
