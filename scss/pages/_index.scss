@@ -1284,8 +1284,12 @@ body:not(.no-js) .fading-up {
 
 //
 .ecosystem {
+  background-color: #fff;
+  color: #000;
   display: flex;
   gap: 1.5rem;
+  padding: 3rem;
+  padding-bottom: 0;
   align-items: flex-start;
 
   &-item {
