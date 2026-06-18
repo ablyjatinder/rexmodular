@@ -1287,13 +1287,20 @@ body:not(.no-js) .fading-up {
   background-color: #fff;
   color: #000;
   display: flex;
+  flex-flow: row wrap;
   gap: 1.5rem;
-  padding: 3rem;
+  padding: 0;
   padding-bottom: 0;
   align-items: flex-start;
+  margin-top: 1.5rem;
 
   &-item {
+    flex: 1;
     text-align: center;
+
+    @include media-breakpoint-down(md) {
+      flex: auto;
+    }
   }
 
   &-icon {
@@ -1323,4 +1330,10 @@ body:not(.no-js) .fading-up {
     font-size: 0.9rem;
     text-wrap-style: balance;
   }
+}
+
+.app-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
