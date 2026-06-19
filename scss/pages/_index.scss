@@ -1337,3 +1337,16 @@ body:not(.no-js) .fading-up {
   gap: 1rem;
   align-items: center;
 }
+
+.rex-vida-logo {
+  width: 100%;
+  max-width: 200px;
+}
+
+.text-muted {
+  font-size: 0.8rem;
+  color: $txt-gray;
+  margin-top: 0.5rem;
+  display: inline-block;
+
+}
