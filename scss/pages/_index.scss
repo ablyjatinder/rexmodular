@@ -432,14 +432,22 @@ body:not(.no-js) .fading-up {
       @include media-breakpoint-up(lg) {
         padding: 1.5rem 3rem;
       }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     .icon {
 
       .svg,
       img {
-        width: 4rem;
-        height: 4rem;
+        width: 6rem;
+        height: 6rem;
       }
     }
   }
@@ -666,6 +674,10 @@ body:not(.no-js) .fading-up {
 
     @include media-breakpoint-down(md) {
       padding: 0 1rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: 0 2rem;
     }
   }
 

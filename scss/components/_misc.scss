@@ -17,8 +17,20 @@ html {
   scroll-behavior: initial;
   font-size: 16px;
 
+  @include media-breakpoint-down(sm) {
+
+
+    .container {
+      --bs-gutter-x: 2rem;
+      padding-right: calc(var(--bs-gutter-x));
+      padding-left: calc(var(--bs-gutter-x));
+    }
+  }
+
   @include media-breakpoint-up(sm) {
     font-size: 12px;
+
+
   }
 
   @include media-breakpoint-up(md) {
@@ -41,6 +53,8 @@ html {
     font-size: 16px;
   }
 }
+
+
 
 @media (min-width: 1600px) {
   .container {

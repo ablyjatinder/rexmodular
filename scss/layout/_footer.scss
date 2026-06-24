@@ -88,11 +88,12 @@ $section-padding: clamp(2rem, 5vw, 10rem);
 
   p {
     color: #000;
-    font-size: 1.125rem;
+    font-size: 0.85rem;
     padding: 0.125rem 0;
 
     @include media-breakpoint-up(lg) {
       padding: 0.5rem 0;
+      font-size: 1.125rem;
     }
 
   }
@@ -114,6 +115,8 @@ $section-padding: clamp(2rem, 5vw, 10rem);
   }
 
   .copyright {
-    text-align: end;
+    @include media-breakpoint-up(lg) {
+      text-align: end;
+    }
   }
 }
